@@ -67,6 +67,11 @@ int main(int argc, char** argv) {
     surface = cairo_pdf_surface_create(args::get(output).c_str(), args::get(image_width), args::get(image_height));
     cr = cairo_create(surface);
 
+    cairo_set_source_rgb(cr, 1, 1, 1);
+    cairo_rectangle(cr, 0, 0, args::get(image_width), args::get(image_height));
+    cairo_fill(cr);
+
+    cairo_set_source_rgb(cr, 0, 0, 0);
     cairo_text_extents_t te;
 
     // draw indexes
